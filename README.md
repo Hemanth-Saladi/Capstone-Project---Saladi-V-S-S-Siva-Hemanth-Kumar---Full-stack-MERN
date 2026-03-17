@@ -1,6 +1,4 @@
-# Capstone-Project---Saladi-V-S-S-Siva-Hemanth-Kumar---Full-stack-MERN
-
-# 🎵 Music Library – Full Stack MERN
+# 🎵 Minstrel – Full Stack MERN
 
 ## Features
 
