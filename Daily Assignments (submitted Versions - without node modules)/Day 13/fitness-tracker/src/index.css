@@ -1,0 +1,31 @@
+body.light {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 600;
+}
+
+.timer-text {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #0d6efd;
+}
+
+.dark .timer-text {
+  color: #66b2ff;
+}
+
+.card {
+  border-radius: 12px;
+}
+
+button {
+  margin: 5px;
+}

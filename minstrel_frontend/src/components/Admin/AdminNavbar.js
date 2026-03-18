@@ -15,7 +15,7 @@ const AdminNavbar = () => {
       <div className="topbar-actions">
         <button onClick={() => navigate("/admin/upload-song")}>+ Create</button>
         <button onClick={() => navigate("/admin/analytics")}>Analytics</button>
-        <button className="avatar-btn" onClick={() => navigate("/profile")}>
+        <button className="avatar-btn" onClick={() => navigate("/admin/profile")}>
           {user?.username?.[0]?.toUpperCase() || "A"}
         </button>
         <button

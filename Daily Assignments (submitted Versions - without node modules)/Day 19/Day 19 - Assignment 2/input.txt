@@ -1,0 +1,2 @@
+This content will be copied using Promises.
+Hello Wipro and Great Learning.

@@ -7,6 +7,7 @@ export const PlayerProvider = ({ children }) => {
 
   const [currentSong, setCurrentSong] = useState(null);
   const [queue, setQueue] = useState([]);
+  const [history, setHistory] = useState([]);
   const [queueOpen, setQueueOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -14,7 +15,13 @@ export const PlayerProvider = ({ children }) => {
 
   const playSong = (song) => {
     if (!song) return;
+
     const audio = audioRef.current;
+
+    if (currentSong && currentSong._id !== song._id) {
+      setHistory((prev) => [...prev, currentSong]);
+    }
+
     setCurrentSong(song);
     audio.src = `http://localhost:5000/${song.audioUrl}`;
     audio.play().catch(console.error);
@@ -36,6 +43,7 @@ export const PlayerProvider = ({ children }) => {
   };
 
   const addToQueue = (song) => setQueue((prev) => [...prev, song]);
+
   const playNext = (song) => setQueue((prev) => [song, ...prev]);
 
   const nextSong = () => {
@@ -43,9 +51,23 @@ export const PlayerProvider = ({ children }) => {
       setIsPlaying(false);
       return;
     }
+
     const next = queue[0];
     setQueue((prev) => prev.slice(1));
     playSong(next);
+  };
+
+  const prevSong = () => {
+    if (history.length === 0) return;
+
+    const previous = history[history.length - 1];
+    setHistory((prev) => prev.slice(0, -1));
+    playSong(previous);
+  };
+
+  const seekTo = (value) => {
+    audioRef.current.currentTime = value;
+    setProgress(value);
   };
 
   useEffect(() => {
@@ -56,7 +78,9 @@ export const PlayerProvider = ({ children }) => {
       setDuration(audio.duration || 0);
     };
 
-    const handleEnd = () => nextSong();
+    const handleEnd = () => {
+      nextSong();
+    };
 
     audio.addEventListener("timeupdate", updateProgress);
     audio.addEventListener("ended", handleEnd);
@@ -65,13 +89,14 @@ export const PlayerProvider = ({ children }) => {
       audio.removeEventListener("timeupdate", updateProgress);
       audio.removeEventListener("ended", handleEnd);
     };
-  }, [queue]);
+  }, [queue, currentSong, history]);
 
   return (
     <PlayerContext.Provider
       value={{
         currentSong,
         queue,
+        history,
         queueOpen,
         isPlaying,
         progress,
@@ -83,6 +108,8 @@ export const PlayerProvider = ({ children }) => {
         addToQueue,
         playNext,
         nextSong,
+        prevSong,
+        seekTo,
         toggleQueue: () => setQueueOpen((p) => !p)
       }}
     >

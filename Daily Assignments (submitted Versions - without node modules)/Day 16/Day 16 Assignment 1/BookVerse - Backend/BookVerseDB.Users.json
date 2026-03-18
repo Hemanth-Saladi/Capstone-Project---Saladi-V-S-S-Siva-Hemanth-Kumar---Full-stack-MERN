@@ -1,0 +1,24 @@
+[{
+  "_id": 1,
+  "name": "Alice Smith",
+  "email": "alice@example.com",
+  "joinDate": {
+    "$date": "2023-01-15T00:00:00.000Z"
+  }
+},
+{
+  "_id": 3,
+  "name": "Carol Lee",
+  "email": "carol@example.com",
+  "joinDate": {
+    "$date": "2023-06-20T00:00:00.000Z"
+  }
+},
+{
+  "_id": 4,
+  "name": "David Miller",
+  "email": "david@example.com",
+  "joinDate": {
+    "$date": "2023-11-01T00:00:00.000Z"
+  }
+}]

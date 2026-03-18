@@ -1,0 +1,60 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "title": "Data Structures in C",
+      "author": "Reema Thareja",
+      "price": 450,
+      "image": "https://m.media-amazon.com/images/I/61U+PeXZIwL.jpg",
+      "description": "A complete guide to understanding data structures using C programming.",
+      "authorBio": "Reema Thareja is a renowned computer science author known for writing clear and practical textbooks on programming and data structures.",
+      "topBooks": [
+        "Data Structures Using C",
+        "Programming in C",
+        "Python Programming"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Core Java Volume I",
+      "author": "Cay S. Horstmann",
+      "price": 550,
+      "image": "https://m.media-amazon.com/images/I/61MFx7FNU3L._AC_UF1000,1000_QL80_.jpg",
+      "description": "Comprehensive introduction to Java programming and object-oriented concepts.",
+      "authorBio": "Cay S. Horstmann is a professor and bestselling programming author famous for his books on Java programming.",
+      "topBooks": [
+        "Core Java Vol 1",
+        "Core Java Vol 2",
+        "Java Concepts"
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Computer Networks",
+      "author": "Andrew S. Tanenbaum",
+      "price": 650,
+      "image": "https://rukminim2.flixcart.com/image/480/640/xif0q/book/m/o/q/computer-networks-original-imahb95vs3azqyn6.jpeg?q=90",
+      "description": "Detailed concepts of networking fundamentals and protocols.",
+      "authorBio": "Andrew S. Tanenbaum is a computer science professor known for his textbooks on networking and operating systems.",
+      "topBooks": [
+        "Computer Networks",
+        "Modern Operating Systems",
+        "Structured Computer Organization"
+      ]
+    },
+    {
+      "id": "1773231605489",
+      "title": "Introduction to Python Programming and Data Structures, 3rd Edition",
+      "author": "Y Daniel Liang",
+      "price": 600,
+      "image": "https://m.media-amazon.com/images/I/91CkJngsQ1L.jpg",
+      "description": "Content – 1. Introduction to Computers, Programs, and Python 2. Elementary Programming 3. Selections 4. Mathematical Functions, Strings, and Objects 5. Loops 6. Functions 7. Lists 8. Multidimensional Lists 9. Objects and Classes 10. Basic GUI Programming Using Tkinter 11. Advanced GUI Programming Using Tkinter 12. Inheritance and Polymorphism 13. Files and Exception Handling 14. Tuples, Sets, and Dictionaries 15. Recursion 16. Developing Efficient Algorithms 17. Sorting 18. Linked Lists, Stacks, Queues, and Priority Queues 19. Binary Search Trees 20. AVL Trees 21. Hashing 22. Graphs and Applications 23. Weighted Graphs and Applications",
+      "authorBio": "Y Daniel Liang, Georgia Southern University  ",
+      "topBooks": [
+        "ava Programming",
+        "Data Structures"
+      ]
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

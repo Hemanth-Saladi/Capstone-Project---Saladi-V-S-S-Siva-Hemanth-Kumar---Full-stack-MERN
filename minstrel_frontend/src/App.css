@@ -825,32 +825,109 @@ p {
 
     @media (max-width: 700px) {
         .playerbar {
-            grid-template-columns: 1fr;
-            height: auto;
-            padding: 12px;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 96px;
+            background: rgba(17, 24, 39, 0.96);
+            backdrop-filter: blur(14px);
+            border-top: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 1fr 1.4fr 1fr;
+            align-items: center;
+            gap: 16px;
+            padding: 0 18px;
+            z-index: 50;
         }
 
-        .player-left,
-        .player-center,
-        .player-right {
+        .player-left {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
-            text-align: center;
         }
 
-        .player-right {
-            display: none;
+        .player-song-title {
+            font-weight: 700;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .player-song-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .player-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
         }
 
         .player-controls {
-            width: 100%;
-            justify-content: center;
-            flex-wrap: wrap;
+            display: flex;
+            gap: 10px;
+            align-items: center;
         }
 
-        .player-controls button {
-            min-width: 84px;
+        .player-controls button,
+        .queue-btn {
+            min-width: 90px;
+            border-radius: 999px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 10px 14px;
+            cursor: pointer;
         }
+
+        .player-controls button:hover,
+        .queue-btn:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .player-seek-row {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 48px 1fr 48px;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .player-seek {
+            width: 100%;
+        }
+
+        .player-right {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .form-table input,
+        .form-table select {
+            min-width: 180px;
+        }
+
+        .profile-section {
+            margin-bottom: 18px;
+        }
+
+        .upload-btn {
+            margin-top: 16px;
+        }
+
     }
+
 
     .auth-card {
         padding: 24px 18px;

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Flower School - Online Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-soft-blue: #e3f2fd;
+            --nav-text: #0277bd;
+            --accent-orange: #ff9100;
+            --table-header: #bbdefb;
+            --border-color: #90caf9;
+        }
+
+        body {
+            background-color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- Dynamic Navbar (Light Theme) --- */
+        .navbar {
+            background-color: var(--primary-soft-blue) !important;
+            border-bottom: 2px solid var(--border-color);
+            padding: 15px 0;
+        }
+
+        .nav-link-custom {
+            color: var(--nav-text) !important;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin: 0 10px;
+            padding: 8px 15px !important;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link-custom:hover {
+            background-color: var(--nav-text);
+            color: white !important;
+        }
+
+        /* --- Full-Width Carousel --- */
+        .carousel-item img {
+            width: 100%;
+            height: 70vh; /* Dynamic height based on viewport */
+            object-fit: cover;
+        }
+
+        /* --- Responsive Modals --- */
+        .modal-content-custom {
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .modal-header {
+            background-color: var(--nav-text);
+            color: white;
+            border: none;
+        }
+
+        /* Student Profile Flexbox */
+        .profile-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .profile-img {
+            flex: 1;
+            min-width: 250px;
+            max-height: 400px;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-info {
+            flex: 1.5;
+            padding: 30px;
+            background-color: #fafafa;
+        }
+
+        .profile-info h3 { color: var(--nav-text); font-weight: 800; }
+
+        /* --- Timetable Styling --- */
+        .table-premium {
+            margin-bottom: 0;
+        }
+
+        .table-premium thead {
+            background-color: var(--table-header);
+            color: var(--nav-text);
+        }
+
+        .day-column {
+            background-color: var(--primary-soft-blue);
+            color: var(--nav-text);
+            font-weight: bold;
+        }
+
+        .lunch-row {
+            background-color: #fff9c4 !important; /* Soft Yellow for Lunch */
+            font-weight: bold;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .carousel-item img { height: 40vh; }
+            .profile-container { flex-direction: column; }
+            .profile-img { max-height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="Logo.png" height="60" alt="Spring Flower Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto text-center">
+                    <li class="nav-item"><a class="nav-link nav-link-custom" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-custom" href="#" data-bs-toggle="modal" data-bs-target="#profileModal">Student Profile</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-custom" href="#" data-bs-toggle="modal" data-bs-target="#ttModal">Time-Table</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid p-0">
+        <div id="heroFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="Img 3.jpeg" alt="Classroom">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                        <h1>Welcome to Spring Flower School</h1>
+                        <p>Our Online Portal for Little Achievers</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Img 2.jpg" alt="Playground">
+                </div>
+                <div class="carousel-item">
+                    <img src="Img 1.png" alt="Library">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="profileModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content modal-content-custom">
+                <div class="modal-header">
+                    <h5 class="modal-title">Student Information Card</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="profile-container">
+                    <div class="profile-img">
+                        <img src="image.jpeg" alt="Tom Cat">
+                    </div>
+                    <div class="profile-info">
+                        <h3>TOM CAT</h3>
+                        <p class="text-muted">Junior Primary Division</p>
+                        <hr>
+                        <div class="row">
+                            <div class="col-6"><p><strong>Section:</strong> 1C</p></div>
+                            <div class="col-6"><p><strong>Age:</strong> 7 Years</p></div>
+                            <div class="col-6"><p><strong>Blood Group:</strong> O+</p></div>
+                            <div class="col-6"><p><strong>House:</strong> Blue Bells</p></div>
+                            <div class="col-12"><p><strong>Emergency Contact:</strong> 100</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="ttModal" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content modal-content-custom">
+                <div class="modal-header">
+                    <h5 class="modal-title">Primary School Time-Table</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-premium mb-0 text-center align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>DAY / TIME</th>
+                                    <th>09:00 - 10:00</th>
+                                    <th>10:00 - 11:00</th>
+                                    <th>11:00 - 12:00</th>
+                                    <th class="lunch-row">12:00 - 01:00</th>
+                                    <th>01:00 - 02:00</th>
+                                    <th>02:00 - 03:00</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="day-column">MON</td>
+                                    <td>English</td>
+                                    <td>Maths</td>
+                                    <td>-</td>
+                                    <td rowspan="5" class="lunch-row">L<br>U<br>N<br>C<br>H</td>
+                                    <td>Social Studies</td>
+                                    <td>Play Time</td>
+                                </tr>
+                                <tr>
+                                    <td class="day-column">TUE</td>
+                                    <td>General Science</td>
+                                    <td>English</td>
+                                    <td>Maths</td>
+                                    <td>Social Studies</td>
+                                    <td>Play Time</td>
+                                </tr>
+                                <tr>
+                                    <td class="day-column">WED</td>
+                                    <td>Maths</td>
+                                    <td>General Science</td>
+                                    <td>Play Time</td>
+                                    <td>English</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td class="day-column">THU</td>
+                                    <td>Social Studies</td>
+                                    <td>English</td>
+                                    <td>Maths</td>
+                                    <td>General Science</td>
+                                    <td>Play Time</td>
+                                </tr>
+                                <tr>
+                                    <td class="day-column">FRI</td>
+                                    <td>General Science</td>
+                                    <td>Play Time</td>
+                                    <td>English</td>
+                                    <td>-</td>
+                                    <td>Maths</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

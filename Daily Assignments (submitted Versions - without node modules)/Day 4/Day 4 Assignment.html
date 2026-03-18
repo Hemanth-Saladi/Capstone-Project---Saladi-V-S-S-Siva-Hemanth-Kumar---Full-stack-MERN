@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Flower School | Student Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --emerald: #2d6a4f;
+            --mint: #d8f3dc;
+            --white: #ffffff;
+            --soft-gray: #f8f9fa;
+            --spring-green: #2e7d32;
+            --spring-light: #f1f8e9;
+        }
+
+        body {
+            background-color: var(--white);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: #1b4332;
+        }
+
+        /* --- Auth Section (Restored Style) --- */
+        #auth-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--spring-light) 0%, #ffffff 100%);
+        }
+
+        .auth-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            border-top: 5px solid var(--spring-green);
+        }
+
+        /* --- Main Application --- */
+        #main-portal { display: none; }
+
+        .navbar {
+            background-color: var(--white) !important;
+            border-bottom: 3px solid var(--emerald);
+            padding: 12px 0;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            font-weight: 800;
+            color: var(--emerald) !important;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-svg {
+            width: 45px;
+            height: 45px;
+            margin-right: 12px;
+        }
+
+        .nav-link-btn {
+            font-weight: 600;
+            color: var(--emerald) !important;
+            margin: 0 10px;
+            padding: 8px 18px !important;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+
+        .nav-link-btn:hover { background-color: var(--mint); }
+
+        /* --- Content --- */
+        .carousel-item img {
+            height: 65vh;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .activity-item {
+            background: var(--soft-gray);
+            border-left: 5px solid var(--emerald);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 0 10px 10px 0;
+            transition: 0.3s;
+        }
+
+        .activity-item:hover { background: var(--mint); transform: scale(1.02); }
+
+        .table-custom {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .table-custom thead { background-color: var(--emerald); color: white; }
+
+        @media (max-width: 768px) {
+            .carousel-item img { height: 40vh; }
+            .navbar-brand span { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <section id="auth-section">
+        <div class="auth-card">
+            <div class="text-center mb-4">
+                <h3 class="fw-bold">Student Login</h3>
+                <p class="text-muted small">Enter your credentials to enter the portal</p>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input type="text" id="username" class="form-control" placeholder="tomcat">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" id="password" class="form-control" placeholder="••••••••">
+            </div>
+            <button class="btn btn-success w-100 fw-bold py-2" onclick="handleLogin()">Login</button>
+            <div class="text-center mt-3">
+                <a href="#" class="text-decoration-none small" style="color: var(--spring-green);">Create an account</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="main-portal">
+        <nav class="navbar navbar-expand-lg sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="#" onclick="location.reload()">
+                    <svg class="logo-svg" viewBox="0 0 24 24" fill="var(--emerald)">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                    </svg>
+                    <span>SPRING FLOWERS SCHOOL</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="navbar-nav ms-auto">
+                        <li><a class="nav-link nav-link-btn" href="#" data-bs-toggle="modal" data-bs-target="#profileModal">Profile</a></li>
+                        <li><a class="nav-link nav-link-btn" href="#" data-bs-toggle="modal" data-bs-target="#ttModal">Timetable</a></li>
+                        <li><button class="btn btn-success ms-lg-2" data-bs-toggle="modal" data-bs-target="#actModal">Monthly Chart</button></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main class="container py-4">
+            <div id="hero" class="carousel slide shadow mb-5" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active"><img src="Img 3.jpeg" class="d-block w-100" alt="Slide 1"></div>
+                    <div class="carousel-item"><img src="Img 2.jpg" class="d-block w-100" alt="Slide 2"></div>
+                    <div class="carousel-item"><img src="Img 1.png" class="d-block w-100" alt="Slide 3"></div>
+                </div>
+            </div>
+            <div class="text-center">
+                <h1 class="display-5 fw-bold">Welcome Back, <span id="user-display">Student</span>!</h1>
+                <p class="text-muted">Explore your subjects and upcoming monthly activities.</p>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal fade" id="profileModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img src="image.jpeg" class="img-fluid rounded-start h-100" style="object-fit:cover" alt="Student">
+                    </div>
+                    <div class="col-md-7 p-5">
+                        <h2 class="fw-bold text-success">TOM CAT</h2>
+                        <span class="badge bg-success mb-3">Grade 1C</span>
+                        <p><strong>Age:</strong> 7 Years</p>
+                        <p><strong>Blood Group:</strong> O+</p>
+                        <p><strong>Emergency:</strong> 9988776655</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="ttModal" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content p-4">
+                <h4 class="mb-4 fw-bold">Academic Schedule</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center align-middle table-custom">
+                        <thead>
+                            <tr>
+                                <th>DAY</th>
+                                <th>09:00 - 11:00</th>
+                                <th>11:00 - 12:00</th>
+                                <th class="bg-warning text-dark">LUNCH</th>
+                                <th>01:00 - 03:00</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>MON</td><td>English</td><td>Maths</td><td rowspan="5" class="bg-light">L<br>U<br>N<br>C<br>H</td><td>Science</td></tr>
+                            <tr><td>TUE</td><td>Science</td><td>Social</td><td>Play Time</td></tr>
+                            <tr><td>WED</td><td>Maths</td><td>English</td><td>Library</td></tr>
+                            <tr><td>THU</td><td>Social</td><td>Science</td><td>Maths</td></tr>
+                            <tr><td>FRI</td><td>English</td><td>Play Time</td><td>Arts</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="actModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 class="fw-bold m-0">Monthly Activity Chart</h4>
+                    <select id="subSelect" class="form-select w-50" onchange="renderActivities()">
+                        <option value="All">All Subjects</option>
+                        <option value="Maths">Maths</option>
+                        <option value="English">English</option>
+                        <option value="Science">Science</option>
+                    </select>
+                </div>
+                <div id="activity-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Array of Monthly Activities
+        const activities = [
+            { id: 1, activity: "Create project file containing tables 12 to 19", subject: "Maths" },
+            { id: 2, activity: "Weekly vocabulary spelling bee challenge", subject: "English" },
+            { id: 3, activity: "Plant a seed and record daily growth observations", subject: "Science" },
+            { id: 4, activity: "Complete addition workbook pages 45-50", subject: "Maths" },
+            { id: 5, activity: "Draft a short story about a talking flower", subject: "English" }
+        ];
+
+        // Authentication Function
+        function handleLogin() {
+            const u = document.getElementById('username').value;
+            const p = document.getElementById('password').value;
+            
+            if(u.toLowerCase() === "tomcat" && p === "1234") {
+                document.getElementById('auth-section').style.display = 'none';
+                document.getElementById('main-portal').style.display = 'block';
+                document.getElementById('user-display').innerText = u.toUpperCase();
+            } else {
+                alert("Access Denied! Use 'tomcat' and '1234'");
+            }
+        }
+
+        // Render filtered activities
+        function renderActivities() {
+            const filter = document.getElementById('subSelect').value;
+            const target = document.getElementById('activity-container');
+            target.innerHTML = "";
+
+            const filtered = filter === "All" ? activities : activities.filter(a => a.subject === filter);
+
+            if(filtered.length === 0) {
+                target.innerHTML = "<p class='text-muted'>No specific activities found for this subject.</p>";
+            }
+
+            filtered.forEach(item => {
+                const div = document.createElement('div');
+                div.className = "activity-item";
+                div.innerHTML = `<h6 class="fw-bold text-success">${item.subject}</h6><p class="m-0">${item.activity}</p>`;
+                target.appendChild(div);
+            });
+        }
+        
+        // Initial render
+        window.onload = renderActivities;
+    </script>
+</body>
+</html>

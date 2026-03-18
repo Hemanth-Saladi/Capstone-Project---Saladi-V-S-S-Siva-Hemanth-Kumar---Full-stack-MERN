@@ -8,7 +8,7 @@ const {
   search,
   updateSong,
   deleteSong,
-  uploadSongs,
+  deleteArtist,
   getAdminStats
 } = require("../controllers/adminController");
 
@@ -19,8 +19,9 @@ router.post("/upload-song", upload.array("songs", 15), uploadSong);
 router.get("/search", search);
 
 router.put("/songs/:id", updateSong);
-
 router.delete("/songs/:id", deleteSong);
+
+router.delete("/artists/:id", deleteArtist);
 
 router.get("/stats", getAdminStats);
 

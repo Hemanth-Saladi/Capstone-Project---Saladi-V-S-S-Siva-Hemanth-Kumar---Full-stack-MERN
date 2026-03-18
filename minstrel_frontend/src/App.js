@@ -26,6 +26,7 @@ import UploadArtist from "./pages/Admin/UploadArtist";
 import ManageSongs from "./pages/Admin/ManageSongs";
 import ManageArtists from "./pages/Admin/ManageArtists";
 import AdminAnalytics from "./pages/Admin/AdminAnalytics";
+import AdminProfile from "./pages/Admin/AdminProfile";
 
 function App() {
   return (
@@ -57,6 +58,7 @@ function App() {
           <Route path="songs" element={<ManageSongs />} />
           <Route path="artists" element={<ManageArtists />} />
           <Route path="analytics" element={<AdminAnalytics />} />
+          <Route path="profile" element={<AdminProfile />} />
         </Route>
       </Route>
     </Routes>

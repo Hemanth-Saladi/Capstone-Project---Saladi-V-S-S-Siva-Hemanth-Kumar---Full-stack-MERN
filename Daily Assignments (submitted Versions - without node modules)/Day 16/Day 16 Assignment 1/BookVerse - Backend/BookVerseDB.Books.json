@@ -1,0 +1,93 @@
+[{
+  "_id": 1,
+  "title": "Harry Potter and the Sorcerer's Stone",
+  "genre": "Fantasy",
+  "publicationYear": 1997,
+  "authorId": 1,
+  "ratings": [
+    {
+      "user": 1,
+      "score": 5,
+      "comment": "Magical!"
+    },
+    {
+      "user": 2,
+      "score": 4,
+      "comment": "Great read"
+    }
+  ]
+},
+{
+  "_id": 2,
+  "title": "Foundation",
+  "genre": "Science Fiction",
+  "publicationYear": 1951,
+  "authorId": 2,
+  "ratings": [
+    {
+      "user": 1,
+      "score": 4,
+      "comment": "Fascinating"
+    },
+    {
+      "user": 4,
+      "score": 5,
+      "comment": "Amazing Sci-Fi!"
+    }
+  ]
+},
+{
+  "_id": 3,
+  "title": "A Game of Thrones",
+  "genre": "Fantasy",
+  "publicationYear": 1996,
+  "authorId": 3,
+  "ratings": [
+    {
+      "user": 3,
+      "score": 5,
+      "comment": "Epic!"
+    },
+    {
+      "user": 2,
+      "score": 5,
+      "comment": "Loved it"
+    }
+  ]
+},
+{
+  "_id": 4,
+  "title": "Harry Potter and the Chamber of Secrets",
+  "genre": "Fantasy",
+  "publicationYear": 1998,
+  "authorId": 1,
+  "ratings": [
+    {
+      "user": 1,
+      "score": 5,
+      "comment": "Better than first"
+    }
+  ]
+},
+{
+  "_id": 5,
+  "title": "I, Robot",
+  "genre": "Science Fiction",
+  "publicationYear": 1950,
+  "authorId": 2,
+  "ratings": [
+    {
+      "user": 3,
+      "score": 4,
+      "comment": "Classic"
+    }
+  ]
+},
+{
+  "_id": 6,
+  "title": "The Winds of Winter",
+  "genre": "Fantasy",
+  "publicationYear": 2025,
+  "authorId": 3,
+  "ratings": []
+}]

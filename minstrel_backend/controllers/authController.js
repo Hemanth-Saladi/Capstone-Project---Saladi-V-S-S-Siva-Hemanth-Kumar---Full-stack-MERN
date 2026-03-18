@@ -2,22 +2,23 @@ const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-
 // SIGNUP
-
 exports.signup = async (req, res) => {
     try {
-
         const { username, email, password } = req.body;
 
         if (!username || !email || !password) {
-            return res.status(400).json({ message: "All fields required" });
+            return res.status(400).json({ message: "All fields are required" });
         }
 
-        const existingUser = await User.findOne({ email });
+        const existingUser = await User.findOne({
+            $or: [{ email }, { username }]
+        });
 
         if (existingUser) {
-            return res.status(400).json({ message: "User already exists" });
+            return res.status(400).json({
+                message: "Email or username already exists"
+            });
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -30,20 +31,20 @@ exports.signup = async (req, res) => {
 
         await user.save();
 
-        res.status(201).json({ message: "User created successfully" });
-
+        res.status(201).json({
+            message: "User created successfully"
+        });
     } catch (error) {
-        res.status(500).json({ message: "Server error" });
+        console.error("Signup error:", error);
+        res.status(500).json({
+            message: "Server error during registration"
+        });
     }
 };
 
-
 // LOGIN
-
 exports.login = async (req, res) => {
-
     try {
-
         const { email, password } = req.body;
 
         // ADMIN LOGIN
@@ -72,7 +73,7 @@ exports.login = async (req, res) => {
         }
 
         const token = jwt.sign(
-            { id: user._id },
+            { id: user._id, role: "user" },
             "minstrel_secret",
             { expiresIn: "7d" }
         );
@@ -84,11 +85,8 @@ exports.login = async (req, res) => {
                 role: "user"
             }
         });
-
     } catch (error) {
-
-        res.status(500).json(error);
-
+        console.error("Login error:", error);
+        res.status(500).json({ message: "Server error during login" });
     }
-
 };

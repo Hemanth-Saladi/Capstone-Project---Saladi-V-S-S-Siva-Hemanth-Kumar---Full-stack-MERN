@@ -1,0 +1,22 @@
+body.light {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.container-card {
+  max-width: 900px;
+  margin: auto;
+}
+
+.card {
+  border-radius: 15px;
+}
+
+button {
+  margin: 5px;
+}

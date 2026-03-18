@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MindSpace - Share Your Thoughts</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <h2>MindSpace</h2>
+</header>
+
+<main class="container">
+
+    <!-- Post Input Section -->
+    <section class="post-input">
+        <textarea id="userPost" placeholder="What's on your mind?"></textarea>
+        <button id="postBtn">Publish</button>
+    </section>
+
+    <!-- Scrollable Public Posts Section -->
+    <section class="posts-section">
+        <h3>Public Stories</h3>
+        <div id="postsContainer" class="posts-container"></div>
+    </section>
+
+</main>
+
+<!-- Floating To-Do Button -->
+<button class="todo-btn" id="todoToggle">To-Do</button>
+
+<!-- Todo Popup -->
+<div class="todo-popup" id="todoPopup">
+    <h3>Your Tasks</h3>
+
+    <div class="todo-input">
+        <input type="text" id="taskInput" placeholder="Add a task..." />
+        <button id="addTask">+</button>
+    </div>
+
+    <ul id="taskList"></ul>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
